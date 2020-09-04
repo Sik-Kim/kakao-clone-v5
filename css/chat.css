@@ -1,0 +1,217 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 2;
+  /* 이거 왜있지 */
+  top: 0px;
+  width: 100%;
+  background-color: white;
+  padding: 5px 0px;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.chats-body {
+  padding: 10px 0px;
+  padding-top: 100px;
+  background-image: url("../images/chat_bg.jpg");
+  min-height: 100vh;
+}
+
+.chats-body .header,
+.chats-body .status-bar {
+  padding: 0px 20px;
+}
+.header__back-btn {
+  margin-left: 12px;
+}
+
+.chat__timestamp {
+  background-color: coral;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.chat__messages {
+  padding: 0px 20px;
+  padding-top: 30px;
+  border-top: 1px solid coral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 이건 없어도 되는거 아닌가 */
+}
+
+.incoming-message {
+  align-self: flex-start;
+}
+
+.sent-message {
+  align-self: flex-end;
+}
+
+.message {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.incoming-message img {
+  width: 30px;
+  border-radius: 15px;
+  margin-right: 15px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+@keyframes incomingAnim {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sentAnim {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.incoming-message {
+  animation: incomingAnim 0.5s ease-in forwards;
+}
+
+.sent-message {
+  animation: sentAnim 0.5s ease-in forwards;
+}
+
+.incoming-message .message__bubble {
+  background-image: linear-gradient(to right, #dd3e54, #6be585);
+}
+
+.sent-message .message__bubble {
+  background-image: linear-gradient(to left, #5433ff, #20bdff, #a5fecb);
+}
+
+.message__author {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.message__bubble {
+  display: block;
+  /* 이건 왜 있지 */
+  padding: 10px 20px;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+.incoming-message .message__bubble {
+  border-bottom-left-radius: 0px;
+}
+.sent-message .message__bubble {
+  border-bottom-right-radius: 0px;
+}
+
+.chat__write-container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+}
+
+.chat__write {
+  margin: 0 auto;
+  /* 이거 뭐였지 */
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px 60px;
+  border: none;
+  font-size: 14px;
+  transition: width 3s ease-in-out, box-shadow 5s ease-in-out,
+    border-radius 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 50%;
+  transform: translateY(-100px);
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  border-radius: 40px;
+  animation: float 3s linear infinite forwards;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    box-shadow: 0 30px 60px -60px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  100% {
+    box-shadow: 0 30px 60px -100px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+}
+
+.chat__icon {
+  font-size: 18px;
+  transition: opacity 1s ease-in-out;
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 10px;
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 10px;
+}
+
+.chat__write:focus ~ .chat__icon {
+  opacity: 0;
+}
+
+.chat__write i {
+  font-size: 999px;
+  /* 왜있음? */
+}

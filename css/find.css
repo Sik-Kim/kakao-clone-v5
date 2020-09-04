@@ -1,0 +1,38 @@
+.find {
+  margin-top: 50px;
+}
+
+.find .find__header-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.find .header-btn span {
+  display: flex;
+  flex-direction: column;
+  /* 왜잇지 */
+  align-items: center;
+}
+
+.header-btn__title {
+  display: block;
+  /* 왜있지 */
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.header-btn__icon {
+  font-size: 22px;
+}
+
+.find .find__recommended {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid coral;
+}
+
+.find__title {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
